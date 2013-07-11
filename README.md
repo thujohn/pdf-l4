@@ -30,6 +30,7 @@ Now add the alias.
 
 Show a PDF
 
+	```php
 	Route::get('/', function()
 	{
 		$html = '<html><body>'
@@ -38,9 +39,11 @@ Show a PDF
 				. '</body></html>';
 		return PDF::load($html, 'A4', 'portrait')->show();
 	});
+	```
 
 Download a PDF
 
+	```php
 	Route::get('/', function()
 	{
 		$html = '<html><body>'
@@ -49,3 +52,4 @@ Download a PDF
 				. '</body></html>';
 		return PDF::load($html, 'A4', 'portrait')->download('my_pdf');
 	});
+	```
