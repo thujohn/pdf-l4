@@ -30,26 +30,26 @@ Now add the alias.
 
 Show a PDF
 
-	```php
-	Route::get('/', function()
-	{
-		$html = '<html><body>'
-				. '<p>Put your html here, or generate it with your favourite '
-				. 'templating system.</p>'
-				. '</body></html>';
-		return PDF::load($html, 'A4', 'portrait')->show();
-	});
-	```
+```php
+Route::get('/', function()
+{
+	$html = '<html><body>'
+			. '<p>Put your html here, or generate it with your favourite '
+			. 'templating system.</p>'
+			. '</body></html>';
+	return PDF::load($html, 'A4', 'portrait')->show();
+});
+```
 
 Download a PDF
 
-	```php
-	Route::get('/', function()
-	{
-		$html = '<html><body>'
-				. '<p>Put your html here, or generate it with your favourite '
-				. 'templating system.</p>'
-				. '</body></html>';
-		return PDF::load($html, 'A4', 'portrait')->download('my_pdf');
-	});
-	```
+```php
+Route::get('/', function()
+{
+	$html = '<html><body>'
+			. '<p>Put your html here, or generate it with your favourite '
+			. 'templating system.</p>'
+			. '</body></html>';
+	return PDF::load($html, 'A4', 'portrait')->download('my_pdf');
+});
+```
