@@ -1,7 +1,5 @@
 <?php namespace Thujohn\Pdf;
 
-require_once 'dompdf/dompdf_config.inc.php';
-
 use Illuminate\Support\ServiceProvider;
 
 class PdfServiceProvider extends ServiceProvider {
