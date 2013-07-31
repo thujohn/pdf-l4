@@ -49,4 +49,9 @@ class Pdf {
 		$this->render();
 		return $this->dompdf->stream($filename.'.pdf', $options);
 	}
+
+	public function output($options = array('compress' => 1)){
+		$this->render();
+		return $this->dompdf->output($options);
+	}
 }
