@@ -53,3 +53,16 @@ Route::get('/', function()
 	return PDF::load($html, 'A4', 'portrait')->download('my_pdf');
 });
 ```
+
+Returns a PDF as a string
+
+```php
+Route::get('/', function()
+{
+	$html = '<html><body>'
+			. '<p>Put your html here, or generate it with your favourite '
+			. 'templating system.</p>'
+			. '</body></html>';
+	$pdf = PDF::load($html, 'A4', 'portrait')->output();
+});
+```
