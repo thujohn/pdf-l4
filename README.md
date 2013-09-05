@@ -14,16 +14,21 @@ Add `thujohn/pdf` to `composer.json`.
 Run `composer update` to pull down the latest version of Pdf.
 
 Now open up `app/config/app.php` and add the service provider to your `providers` array.
-
-    'providers' => array(
-        'Thujohn\Pdf\PdfServiceProvider',
-    )
-
+```php
+'providers' => array(
+	'Thujohn\Pdf\PdfServiceProvider',
+)
+```
 Now add the alias.
-
-    'aliases' => array(
-        'PDF' => 'Thujohn\Pdf\PdfFacade',
-    )
+```php
+'aliases' => array(
+	'PDF' => 'Thujohn\Pdf\PdfFacade',
+)
+```
+Publish the config
+```
+php artisan config:publish thujohn/pdf
+```
 
 
 ## Usage
