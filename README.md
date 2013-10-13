@@ -71,3 +71,26 @@ Route::get('/', function()
 	$pdf = PDF::load($html, 'A4', 'portrait')->output();
 });
 ```
+
+Save the PDF to a file in a specific folder, and then mail it as attachement
+
+	
+	define('BUDGETS_DIR', public_path().'/uploads/budgets'); // I define this in a constants.php file
+
+	if ( ! is_dir(BUDGETS_DIR)) {
+	    mkdir(BUDGETS_DIR, 0755, true);
+	}
+	
+        $outputName = str_random(10); // str_random is a Laravel helper http://laravel.com/docs/helpers#strings
+	$pdfPath = BUDGETS_DIR.'/'.$outputName.'.pdf';
+	File::put($pdfPath, PDF::load($view, 'A4', 'portrait')->output());
+	
+	Mail::send('emails.pdf', $data, function($message) use ($pdfPath)
+	{
+	    $message->from('us@example.com', 'Laravel');
+	
+	    $message->to('you@example.com');
+	
+	    $message->attach($pdfPath);
+	});
+
