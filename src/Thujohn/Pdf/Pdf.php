@@ -40,9 +40,9 @@ class Pdf {
 		return $this->dompdf->render();
 	}
 
-	public function show($options = array('compress' => 1, 'Attachment' => 0)){
+	public function show($filename = 'dompdf_out', $options = array('compress' => 1, 'Attachment' => 0)){
 		$this->render();
-		return $this->dompdf->stream('dompdf_out.pdf', $options);
+		return $this->dompdf->stream($filename.'.pdf', $options);
 	}
 
 	public function download($filename = 'dompdf_out', $options = array('compress' => 1, 'Attachment' => 1)){
