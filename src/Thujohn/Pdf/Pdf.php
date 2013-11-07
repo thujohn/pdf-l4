@@ -13,7 +13,9 @@ class Pdf {
 
 		foreach ($_conf as $conf){
 			if (Config::has('pdf::'.$conf) || Config::get('pdf::'.$conf))
-				define($conf, Config::get('pdf::'.$conf));
+                if (!defined($conf)) {
+				    define($conf, Config::get('pdf::'.$conf));
+                }
 		}
 
 		require_once 'dompdf/dompdf_config.inc.php';
