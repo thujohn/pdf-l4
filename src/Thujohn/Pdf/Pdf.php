@@ -42,16 +42,23 @@ class Pdf {
 
 	public function show($filename = 'dompdf_out', $options = array('compress' => 1, 'Attachment' => 0)){
 		$this->render();
+		$this->clear();
 		return $this->dompdf->stream($filename.'.pdf', $options);
 	}
 
 	public function download($filename = 'dompdf_out', $options = array('compress' => 1, 'Attachment' => 1)){
 		$this->render();
+		$this->clear();
 		return $this->dompdf->stream($filename.'.pdf', $options);
 	}
 
 	public function output($options = array('compress' => 1)){
 		$this->render();
 		return $this->dompdf->output($options);
+	}
+
+	public function clear(){
+		\Image_Cache::clear();
+		return true;
 	}
 }

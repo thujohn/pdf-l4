@@ -817,7 +817,7 @@ class DOMPDF {
     $root->reflow();
 
     // Clean up cached images
-    Image_Cache::clear();
+    // Image_Cache::clear();
     
     global $_dompdf_warnings, $_dompdf_show_warnings;
     if ( $_dompdf_show_warnings ) {

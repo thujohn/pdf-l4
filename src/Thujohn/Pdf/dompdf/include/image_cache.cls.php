@@ -149,7 +149,7 @@ class Image_Cache {
     
     foreach ( self::$_cache as $file ) {
       if (DEBUGPNG) print "[clear unlink $file]";
-      unlink($file);
+      if (file_exists($file)) unlink($file);
     }
   }
   
