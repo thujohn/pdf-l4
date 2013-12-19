@@ -1,6 +1,6 @@
 <?php namespace Thujohn\Pdf;
 
-use Config;
+use Illuminate\Support\Facades\Config as Config;
 
 class Pdf {
 	protected $dompdf;
