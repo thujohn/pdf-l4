@@ -4,7 +4,7 @@
  * @link    http://www.dompdf.com/
  * @author  Benj Carson <benjcarson@digitaljunkies.ca>
  * @author  Helmut Tischer <htischer@weihenstephan.org>
- * @author  Fabien Ménager <fabien.menager@gmail.com>
+ * @author  Fabien Mï¿½nager <fabien.menager@gmail.com>
  * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  * @version $Id: style.cls.php 469 2012-02-05 22:25:30Z fabien.menager $
  */
@@ -1415,7 +1415,8 @@ class Style {
 
     //see __set and __get, on all assignments clear cache, not needed on direct set through __set
     $this->_prop_cache["color"] = null;
-    $this->_props["color"] = $col["hex"];
+    if (is_array($col))
+      $this->_props["color"] = $col["hex"];
   }
 
   /**
