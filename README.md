@@ -1,6 +1,7 @@
 # Dompdf
 
 Simple Dompdf package for Laravel 4
+This package uses the latest stable version (0.5)
 
 [![Build Status](https://travis-ci.org/thujohn/pdf-l4.png?branch=master)](https://travis-ci.org/thujohn/pdf-l4)
 
@@ -8,8 +9,9 @@ Simple Dompdf package for Laravel 4
 ## Installation
 
 Add `thujohn/pdf` to `composer.json`.
-
-    "thujohn/pdf": "dev-master"
+```
+"thujohn/pdf": "dev-master"
+```
     
 Run `composer update` to pull down the latest version of Pdf.
 
@@ -34,7 +36,6 @@ php artisan config:publish thujohn/pdf
 ## Usage
 
 Show a PDF
-
 ```php
 Route::get('/', function()
 {
@@ -47,7 +48,6 @@ Route::get('/', function()
 ```
 
 Download a PDF
-
 ```php
 Route::get('/', function()
 {
@@ -60,7 +60,6 @@ Route::get('/', function()
 ```
 
 Returns a PDF as a string
-
 ```php
 Route::get('/', function()
 {
@@ -70,6 +69,17 @@ Route::get('/', function()
 			. '</body></html>';
 	$pdf = PDF::load($html, 'A4', 'portrait')->output();
 });
+```
+
+Multiple PDFs
+```php
+for ($i=1;$i<=2;$i++)
+{
+	$pdf = new \Thujohn\Pdf\Pdf();
+	$content = $pdf->load(View::make('pdf.image'))->output();
+	File::put(public_path('test'.$i.'.pdf'), $content);
+}
+PDF::clear();
 ```
 
 
