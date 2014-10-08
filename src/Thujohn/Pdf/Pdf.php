@@ -19,6 +19,11 @@ class Pdf {
 		require_once 'dompdf/dompdf_config.inc.php';
 
 		$this->dompdf = new \DOMPDF();
+		
+		
+		if (Config::has('pdf::base_path')) {
+			$this->dompdf->set_base_path(Config::get('pdf::base_path'));
+		}
 	}
 
 	public function load($html, $size = 'A4', $orientation = 'portrait'){
