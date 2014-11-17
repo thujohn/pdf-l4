@@ -1,6 +1,7 @@
 <?php namespace Thujohn\Pdf;
 
 use Illuminate\Support\Facades\Config as Config;
+use Illuminate\Http\Response;
 
 class Pdf {
 	protected $dompdf;
@@ -54,7 +55,10 @@ class Pdf {
 	public function download($filename = 'dompdf_out', $options = array('compress' => 1, 'Attachment' => 1)){
 		$this->render();
 		$this->clear();
-		return $this->dompdf->stream($filename.'.pdf', $options);
+		return new Response($this->dompdf->stream($filename.'.pdf', $options), 200, array(
+                    'Content-Type' => 'application/pdf',
+                    'Content-Disposition' =>  'attachment; filename="'.$filename.'"'
+                ));
 	}
 
 	public function output($options = array('compress' => 1)){
