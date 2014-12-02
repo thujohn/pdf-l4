@@ -3,7 +3,7 @@
     "description": "dompdf for Laravel 4",
 	"keywords": ["pdf", "dompdf", "laravel", "laravel4"],
     "license": "MIT",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "authors": [
         {
             "name": "thujohn",
