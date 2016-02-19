@@ -56,8 +56,7 @@ class Pdf {
 		$this->render();
 		$this->clear();
 		return new Response($this->dompdf->stream($filename.'.pdf', $options), 200, array(
-                    'Content-Type' => 'application/pdf',
-                    'Content-Disposition' =>  'attachment; filename="'.$filename.'"'
+                    'Content-Type' => 'application/pdf'                    
                 ));
 	}
 
